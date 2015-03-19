@@ -16,7 +16,11 @@ This document describes the code inside  run_analysis.R .
 5. Appropriately labels the data set with descriptive variable names
 6. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+<<<<<<< HEAD
 ## Section 1: Downloading the UCI Har Data and unzips the files
+=======
+## Section 1
+>>>>>>> origin/master
 1.  Loaded the downloader and utils library to download the UCI Har Data and unzipped the files.
 2.  The UCI Har Data was downloaded from the following site:
         https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
@@ -30,13 +34,18 @@ This document describes the code inside  run_analysis.R .
 6.  subject_ID :  There were 30 subjects who participated in the study.  Measurements were taken for these 30 subjects whose ids are from 1 through 30. (found in y_test and y_train files)
 7. The features.txt file has a total of 561 variables.(Measurement Variables)
 
+<<<<<<< HEAD
 ## Section 2: Merges the training and the test sets to create one data set
+=======
+## Section 2
+>>>>>>> origin/master
 1. Read in the names from features.txt into object VarNames.
 2. As soon as I read in the files, I renamed their columns accordingly. 
 3. x_test and y_test were combined together with subject_test to create one dataset. This is stored in an object called  "datatest".
 4. x_train and y_train were were combined together with subject_train to create another dataset. This is stored in an object called "datatrain".
 5. Finally both these datasets were combined using rbind to create an object called, "MergedData",
 
+<<<<<<< HEAD
 ## Section 3: Extracts only the measurements on the mean and standard deviation for each measurement.
 1. Extracts only the measurements ( used the function grepl) on the mean and standard deviation for each measurement variable. 
 2. Only column names where the words "mean" and "std" appeared in the description of their column names in object, "MergedData"  were extracted.
@@ -48,6 +57,18 @@ This document describes the code inside  run_analysis.R .
 1. Created a for loop to replace the descriptive activity_name in place of their numeric values.
 
 ## Section 5: Appropriately labels the data set with descriptive variable names
+=======
+## Section 3
+1. Extracts only the measurements ( used the function grepl) on the mean and standard deviation for each measurement variable. 
+2. Only column names where the words "mean" and "std" appeared in the description of their column names in object, "MergedData"  were extracted.
+3. This extraction resulted in 79 columns/variables with the word "mean" and "std" in their names.  
+4. These 79 variables are stored in the object called full_dataextract.  These measurement variables , start in column 3.  
+
+## Section 4
+1. Created a for loop to replace the descriptive activity_name in place of their numeric values.
+
+## Section 5
+>>>>>>> origin/master
 1. The column names in the object, full_dataextract were not changed from the original names found in features.txt file.  The only manipulation performed  was to rename the column names where the word "body", appeared twice in the description.  I felt this was a typo and replaced those names with the word "body" to only appear once.
 2. The rest of the names are identical to what appears in the features.txt file.
 3. Used the dplyr library to sort the data using the arrange function.
@@ -145,6 +166,10 @@ This document describes the code inside  run_analysis.R .
  + 80 fBodyGyroMag-std()        : original name in features.txt is fBodyBodyGyroMag-std()
  + 81 fBodyGyroJerkMag-std()    : original name in features.txt is fBodyBodyGyroJerkMag-std()
 
+<<<<<<< HEAD
 ## Section 6: Create a second, independent tidy data set with the average of each variable for each activity and each subject.
+=======
+## Section 6
+>>>>>>> origin/master
 1. Loaded the reshape2 library to create my wide form, tidy data.  Used the melt and dcast functions to calculate the mean for each measurement variable by each activity and each subject.  This was stored in an object called "activityData".
 2. Finally, I used the write.table function to create the tidy data set called "TidyDataSet.txt"
